@@ -22,9 +22,12 @@ def print_header
   puts "-------------"
 end
 
-def print(students)
+def print(students, letter)
 students.each_with_index do |student, index|
+  string_name = student[:name].to_s.downcase
+  if string_name[0,1] == letter
   puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+end
 end
 
 end
@@ -33,10 +36,16 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 #nothing happens until we call the methods
+def find_letter
+  puts "Which letter do you want to display?"
+  letter = $stdin.gets.chomp
+  letter = letter.downcase!
+end
 
 students = input_students
+letter = find_letter
 print_header
-print(students)
+print(students, letter)
 print_footer(students)
 
 #let's put all students into an array
