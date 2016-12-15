@@ -25,7 +25,7 @@ end
 end
 #finally, we print the total number of students
 def print_footer(names)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{names.count} great students"
 end
 #nothing happens until we call the methods
 print_header
