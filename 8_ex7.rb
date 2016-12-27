@@ -3,14 +3,31 @@ def input_students
   puts "To finish, just hit return twice"
   #create an emprty array
   students = []
+  cohorts = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
   #get first name
   name = $stdin.gets.chomp
   #while the name is not empty, repeat this code
-  while !name.empty? do
+  puts "Please enter the student's cohort"
+  cohort = $stdin.gets.chomp
+  if cohort.empty?
+    cohorts = :november
+  else
+    cohorts = cohort.downcase.to_sym
+  end
+
+  while !name.empty? && !cohorts.empty? do
     #add the student hash to the array
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: cohorts}
     puts "Now we have #{students.count} students"
+    puts "New name please"
     name = $stdin.gets.chomp
+    puts "their cohort?"
+    cohort = $stdin.gets.chomp
+    if cohort.empty?
+      cohorts = :november
+    else
+      cohorts = cohort.downcase.to_sym
+    end
   end
 
   #return the array of students

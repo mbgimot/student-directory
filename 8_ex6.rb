@@ -30,7 +30,7 @@ end
 end
 #finally, we print the total number of students
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great students".center(20, " ")
 end
 #nothing happens until we call the methods
 
